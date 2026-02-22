@@ -1,4 +1,4 @@
-from reader import parcing
+from services.reader import parcing
 
 
 # def add_price(df):
@@ -45,11 +45,11 @@ def smeta(df):
     result = (temp_df['количество'] * temp_df['Цена']).sum()
     return result
 
-result_pars = parcing("./test.xlsx")
-print(result_pars)
-print()
-print(create_summary_table(result_pars))
-print()
-print(create_smeta_materials(result_pars))
-print()
-print('Общая цена:', smeta(result_pars))
+# result_pars = parcing("./test.xlsx")
+# print(result_pars)
+# print()
+# print(create_summary_table(result_pars))
+# print()
+# print(create_smeta_materials(result_pars))
+# print()
+# print('Общая цена:', smeta(result_pars))
