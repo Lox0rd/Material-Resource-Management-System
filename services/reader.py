@@ -1,16 +1,16 @@
 import pandas as pd
 
 
-def parcing(file):
-    # Читаем листы
-    sheets = pd.read_excel(file, sheet_name=['Материалы', 'Цены'], engine='openpyxl')
-    
+def parcing(file_path):
+    sheets = pd.read_excel(file_path, sheet_name=['Материалы', 'Цены'], engine='openpyxl')
+
     materials_df = sheets['Материалы']
     prices_df = sheets['Цены']
     
-    # Переименовываем столбцы для единообразия
-    materials_df.columns = ['материал', 'количество']
-    prices_df.columns = ['материал', 'цена']
-    # Объединяем по столбцу «материал»
-    result = pd.merge(materials_df, prices_df, on='материал', how='inner')
-    return result
+    materials_df.columns = ['Наименование', 'Тип', 'Материал', 'количество', 'Ед.изм']
+    prices_df.columns = ['Материал', 'Цена']
+    
+    # Объединяем таблицы по столбцу 'Материал' — берём только совпадающие записи
+    result_df = pd.merge(materials_df, prices_df, on='Материал', how='inner')
+    
+    return result_df
