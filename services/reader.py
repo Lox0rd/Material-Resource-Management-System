@@ -10,7 +10,6 @@ def parcing(file_path):
     materials_df.columns = ['Наименование', 'Тип', 'Материал', 'количество', 'Ед.изм']
     prices_df.columns = ['Материал', 'Цена']
     
-    # Объединяем таблицы по столбцу 'Материал' — берём только совпадающие записи
     result_df = pd.merge(materials_df, prices_df, on='Материал', how='inner')
     
     return result_df
